@@ -1,9 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpxyr84g6xijh"]
+[gd_scene load_steps=3 format=3 uid="uid://dpxyr84g6xijh"]
 
 [ext_resource type="PackedScene" uid="uid://dl3t660pp0rup" path="res://scenes/knight.tscn" id="1_o5qli"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o5qli"]
+distance = -308.0
 
 [node name="main" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_o5qli")]
 position = Vector2(590, 304)
 scale = Vector2(3, 3)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(593, 91)
+shape = SubResource("WorldBoundaryShape2D_o5qli")
